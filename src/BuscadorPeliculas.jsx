@@ -2,9 +2,6 @@ import { useState } from "react"
 
 export const BuscadorPeliculas = () => {
 
-  const urlBase = 'https://api.themoviedb.org/3/search/movie'
-  const API_KEY = 'INSERT_YOUR_API_KEY'
-
   const [busqueda, setBusqueda] = useState('')
   const [peliculas, setPeliculas] = useState([])
 
@@ -18,7 +15,7 @@ export const BuscadorPeliculas = () => {
 
   const fetchPeliculas = async () => {
     try {
-      const response = await fetch(`${urlBase}?query=${busqueda}&api_key=${API_KEY}`)
+      const response = await fetch(`/.netlify/functions/getMovie?query=${busqueda}`);
       const data = await response.json()
       console.log(data.results)
       setPeliculas(data.results)
