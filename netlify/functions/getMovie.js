@@ -4,7 +4,7 @@ export async function handler(event) {
     const API_KEY = process.env.TM_DB_API_KEY; // Asegúrate de definir tu API_KEY aquí
 
 
-    const url = `https://api. themoviedb.org/3/search/movie${busqueda}&api_key=${API_KEY}`;
+    const url = `https://api.themoviedb.org/3/search/movie?query=${busqueda}&api_key=${API_KEY}`;
 
     try {
         const response = await fetch(url);
